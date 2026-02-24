@@ -1,0 +1,37 @@
+# --- LaTeX ---
+# Ignoriere alle Hilfsdateien, die beim Kompilieren entstehen
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.gz
+*.log
+*.out
+*.pdf
+*.synctex.gz
+*.toc
+*.run.xml
+*.bcf
+*.lof
+*.lot
+
+# --- Jupyter Notebooks ---
+# Ignoriere Checkpoints und temporäre Notebook-Daten
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- VS Code & System ---
+# Ignoriere lokale VS Code Einstellungen und Systemdateien
+.vscode/
+.DS_Store
+Thumbs.db
+
+# --- Environments (Optional) ---
+# Falls ihr Python-Bibliotheken lokal in einer venv installiert
+venv/
+.env
+env/
