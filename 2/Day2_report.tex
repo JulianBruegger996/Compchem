@@ -1,0 +1,128 @@
+\documentclass[a4paper,12pt,bibliography=totocnumbered]{scrartcl}
+
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage[bookmarks,colorlinks=true]{hyperref}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage[final]{pdfpages}
+\usepackage{framed, color} 
+\usepackage{scrlayer-scrpage}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\renewcaptionname{english}{\figurename}{Fig.}
+\renewcaptionname{english}{\tablename}{Tab.}
+\sisetup{
+    detect-weight=true, 
+    detect-family=true,
+    locale=UK,
+    exponent-product = \cdot,
+    range-phrase={\,bis\,},
+    list-final-separator ={\,\linebreak[0] \text{and}\,},
+    separate-uncertainty=true,
+    per-mode = symbol-or-fraction
+}
+%macht kommata anstatt kreuze bei Zehnerpotenzen
+
+\DeclareSIUnit{\angstrom}{\text{\AA}}
+\usepackage[backend=biber, style=chem-angew]{biblatex} 
+\addbibresource{lit.bib} 
+
+\usepackage{chemgreek}
+\usepackage{chemformula}
+\geometry{left = 2.5cm} \geometry{top = 3cm}
+
+\urlstyle{same}
+%Hyperlinks-Setup
+\hypersetup{
+	colorlinks,
+	linktocpage,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+%\numberwithin{equation}{section}
+
+\setlength{\parindent}{0 mm}
+\setlength{\parskip}{2 mm} 
+
+
+
+\pagestyle{scrheadings}
+%Header oben links auf linker Seite (ungerade Seitenzahl) und oben rechts auf rechter Seite (gerade Seitenzahl), beinhaltet gruppennummer und VersuchskÃ¼rzel. Im Fall eine einseitigen Dokuments: Header oben rechts
+\ihead{\VERSUCHSNR} %Header oben rechts auf linker Seite und oben links auf rechter Seite. Beinhaltet die Namen der Verfasser. Im Fall eine einseitigen Dokuments: Header oben links!
+\ohead{\GRUPPENNR}
+\ofoot{\thepage} 
+\cfoot{\empty}  
+\ifoot{\empty} 
+
+
+\newcommand{\VERSUCHSDATUM}{\today}
+\newcommand{\PROTOKOLLDATUM}{\today}
+
+\newcommand{\VerfasserEINS}{Julian Brügger}
+\newcommand{\MatNoEINS}{3715444}
+\newcommand{\EmailEINS}{st190050@stud.uni-stuttgart.de}
+\newcommand{\StudiengangEINS}{B.Sc. Chemie}
+
+\newcommand{\VerfasserZWEI}{Benedict Roßkopf}
+\newcommand{\MatNoZWEI}{3718292}
+\newcommand{\EmailZWEI}{st188124@stud.uni-stuttgart.de}
+\newcommand{\StudiengangZWEI}{B.Sc. Simulation Technology}
+
+
+\newcommand{\BETREUER}{}
+\newcommand{\GRUPPENNR}{}
+
+\newcommand{\VERSUCHSNR}{1}
+\newcommand{\VERSUCHSNAME}{}
+
+
+\begin{document}
+\thispagestyle{empty}
+
+
+\begin{titlepage}
+
+\begin{center}
+\Huge{\textbf{\VERSUCHSNAME}}\\
+\vspace{10mm}% Abstand
+\Large{Protocol for the Computational Chemistry course by \\ \textbf{\VerfasserEINS\;\& \VerfasserZWEI }}\\
+\vspace{10mm} 
+\Large{University of Stuttgart}\\
+\end{center}
+\vspace{0cm}
+\begin{center}
+\begin{tabular}{ll}
+\large{authors:}		& \large{\VerfasserEINS,} \large{\MatNoEINS} \\
+ 						& \large{\EmailEINS} \\
+						\vspace{0cm}\\
+						& \large{\VerfasserZWEI,} \large{\MatNoZWEI} \\
+                        & \large{\EmailZWEI} \\
+						\vspace{0cm}\\
+\vspace{0cm}\\
+\large{date of experiment:}	& \large{\VERSUCHSDATUM} \\
+\vspace{0cm}\\
+\vspace{0cm}\\
+\large{submission date:} & \large{\PROTOKOLLDATUM}
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+\end{titlepage}
+
+\renewcommand{\thepage}{\arabic{page}}
+
+\setcounter{page}{1}
+
+
+\section{Introduction}
+
+\end{document}
