@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt,bibliography=totocnumbered]{scrartcl}
+\documentclass[a4paper,12pt]{scrartcl}
 
 \usepackage[utf8]{inputenc} 
 \usepackage[T1]{fontenc}
@@ -6,143 +6,124 @@
 \usepackage{amsmath, amssymb,amsfonts}
 \usepackage{graphicx}
 \usepackage{csquotes}
-\usepackage[bookmarks,colorlinks=true]{hyperref}
 \usepackage{geometry}
 \usepackage{float}
-\usepackage[final]{pdfpages}
-\usepackage{framed, color} 
+\usepackage{framed, xcolor} 
 \usepackage{scrlayer-scrpage}
 \usepackage{siunitx}
 \usepackage{subcaption}
+\usepackage{chemgreek}
+\usepackage{chemformula}
+\usepackage[bookmarks,colorlinks=true]{hyperref}
+
+% 1. ZUERST DIE VARIABLEN DEFINIEREN
+\newcommand{\VERSUCHSDATUM}{\today}
+\newcommand{\PROTOKOLLDATUM}{\today}
+\newcommand{\VerfasserEINS}{Julian Brügger}
+\newcommand{\MatNoEINS}{3715444}
+\newcommand{\EmailEINS}{st190050@stud.uni-stuttgart.de}
+\newcommand{\StudiengangEINS}{B.Sc. Chemie}
+\newcommand{\VerfasserZWEI}{Benedict Roßkopf}
+\newcommand{\MatNoZWEI}{3718292}
+\newcommand{\EmailZWEI}{st188124@stud.uni-stuttgart.de}
+\newcommand{\StudiengangZWEI}{B.Sc. Simulation Technology}
+\newcommand{\BETREUER}{}
+\newcommand{\GRUPPENNR}{Gruppe X} % Darf nicht leer sein, wenn im Header genutzt
+\newcommand{\VERSUCHSNR}{1}
+\newcommand{\VERSUCHSNAME}{Computational Chemistry Labor}
+
+% 2. DANN DAS LAYOUT
+\geometry{left = 2.5cm, top = 3cm}
 \renewcaptionname{english}{\figurename}{Fig.}
 \renewcaptionname{english}{\tablename}{Tab.}
+
 \sisetup{
     detect-weight=true, 
     detect-family=true,
     locale=UK,
     exponent-product = \cdot,
-    range-phrase={\,bis\,},
-    list-final-separator ={\,\linebreak[0] \text{and}\,},
     separate-uncertainty=true,
     per-mode = symbol-or-fraction
 }
-%macht kommata anstatt kreuze bei Zehnerpotenzen
 
 \DeclareSIUnit{\angstrom}{\text{\AA}}
-\usepackage[backend=biber, style=chem-angew]{biblatex} 
-\addbibresource{lit.bib} 
 
-\usepackage{chemgreek}
-\usepackage{chemformula}
-\geometry{left = 2.5cm} \geometry{top = 3cm}
-
-\urlstyle{same}
-%Hyperlinks-Setup
 \hypersetup{
-	colorlinks,
-	linktocpage,
-	citecolor=black,
-	filecolor=black,
-	linkcolor=black,
-	urlcolor=black
+    colorlinks,
+    linktocpage,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
 }
-
-%\numberwithin{equation}{section}
 
 \setlength{\parindent}{0 mm}
 \setlength{\parskip}{2 mm} 
 
-
-
 \pagestyle{scrheadings}
-%Header oben links auf linker Seite (ungerade Seitenzahl) und oben rechts auf rechter Seite (gerade Seitenzahl), beinhaltet gruppennummer und VersuchskÃ¼rzel. Im Fall eine einseitigen Dokuments: Header oben rechts
-\ihead{\VERSUCHSNR} %Header oben rechts auf linker Seite und oben links auf rechter Seite. Beinhaltet die Namen der Verfasser. Im Fall eine einseitigen Dokuments: Header oben links!
+\clearpairofpagestyles % Löscht alte Voreinstellungen
+\ihead{\VERSUCHSNR} 
 \ohead{\GRUPPENNR}
 \ofoot{\thepage} 
-\cfoot{\empty}  
-\ifoot{\empty} 
-
-
-\newcommand{\VERSUCHSDATUM}{\today}
-\newcommand{\PROTOKOLLDATUM}{\today}
-
-\newcommand{\VerfasserEINS}{Julian Brügger}
-\newcommand{\MatNoEINS}{3715444}
-\newcommand{\EmailEINS}{st190050@stud.uni-stuttgart.de}
-\newcommand{\StudiengangEINS}{B.Sc. Chemie}
-
-\newcommand{\VerfasserZWEI}{Benedict Roßkopf}
-\newcommand{\MatNoZWEI}{3718292}
-\newcommand{\EmailZWEI}{st188124@stud.uni-stuttgart.de}
-\newcommand{\StudiengangZWEI}{B.Sc. Simulation Technology}
-
-
-\newcommand{\BETREUER}{}
-\newcommand{\GRUPPENNR}{}
-
-\newcommand{\VERSUCHSNR}{1}
-\newcommand{\VERSUCHSNAME}{}
-
 
 \begin{document}
-\thispagestyle{empty}
-
 
 \begin{titlepage}
-
 \begin{center}
 \Huge{\textbf{\VERSUCHSNAME}}\\
-\vspace{10mm}% Abstand
+\vspace{10mm}
 \Large{Protocol for the Computational Chemistry course by \\ \textbf{\VerfasserEINS\;\& \VerfasserZWEI }}\\
 \vspace{10mm} 
 \Large{University of Stuttgart}\\
 \end{center}
-\vspace{0cm}
 \begin{center}
 \begin{tabular}{ll}
-\large{authors:}		& \large{\VerfasserEINS,} \large{\MatNoEINS} \\
- 						& \large{\EmailEINS} \\
-						\vspace{0cm}\\
-						& \large{\VerfasserZWEI,} \large{\MatNoZWEI} \\
+\large{authors:}        & \large{\VerfasserEINS, \MatNoEINS} \\
+                        & \large{\EmailEINS} \\
+                        \vspace{2mm}\\
+                        & \large{\VerfasserZWEI, \MatNoZWEI} \\
                         & \large{\EmailZWEI} \\
-						\vspace{0cm}\\
-\vspace{0cm}\\
-\large{date of experiment:}	& \large{\VERSUCHSDATUM} \\
-\vspace{0cm}\\
-\vspace{0cm}\\
-\large{submission date:} & \large{\PROTOKOLLDATUM}
 \end{tabular}
 \end{center}
-
-\vspace{1cm}
-
 \end{titlepage}
-
-\renewcommand{\thepage}{\arabic{page}}
-
-\setcounter{page}{1}
-
 
 \section{Introduction}
 
-
 \begin{table}[H]
     \centering
-    \caption{Bond lengths and energys obtained on each iteration step.}
-    \begin{tabular}{c c c c c}
-        Iteration & Energie (eV) & d(H-O) 1 (\AA) & d(HO) (\AA) & d(H-H) (\AA) \\
-        \hline
+    \caption{Bond lengths and energies obtained on each iteration step.}
+    \begin{tabular}{c c c c cc}
+        Iteration & Energy (eV) & d(H-O) 1 (\AA) & d(HO) (\AA) & d(H-H) (\AA) \\
+        \hline \hline
+        0 & -2068.7735881644826 & 0.9685650183 & 0.9685650183 & 1.5264780000 & 103.9998750987 \\
+
+		1 & -2068.7966121792160 & 0.9381589301 & 0.9381589301 & 1.4986288708 & 106.0136806149 \\
+
+		2 & -2068.8011791814570 & 0.9470826667 & 0.9470826667 & 1.5047656618 & 105.2012975668 \\
+
+		3 & -2068.8013344728065 & 0.9466194847 & 0.9466194847 & 1.5026489579 & 105.0638047033 \\
+
+		4 & -2068.8015001695540 & 0.9461743325 & 0.9461743325 & 1.4977084983 & 104.6433531412 \\
+
+		5 & -2068.8015014033836 & 0.9462672241 & 0.9462672241 & 1.4975708617 & 104.6151571753 \\
+
+		6 & -2068.8015014263200 & 0.9462857742 & 0.9462857742 & 1.4975785763 & 104.6130139450 \\ 
 		\hline
-        1 & -2068.8015 & 0.96857 & 0.96857 & 1.52648 \\
-        2 & -2068.8015 & 0.93816 & 0.93816 & 1.49863 \\
-        3 & -2068.8015 & 0.94708 & 0.94708 & 1.50477 \\
-        4 & -2068.8015 & 0.94662 & 0.94662 & 1.50265 \\
-        5 & -2068.8015 & 0.94617 & 0.94617 & 1.49771 \\
-        6 & -2068.8015 & 0.94627 & 0.94627 & 1.49757 \\
-        7 & -2068.8015 & 0.94629 & 0.94629 & 1.49758 \\
-		\hline
-	\end{tabular}
+    \end{tabular}
 \end{table}
 
+\begin{table}[h]
+    \centering
+    \caption{Difference between initial and final state.}
+    \begin{tabular}{c c}
+    \hline \hline
+    Bond & difference (Iteration $0 \rightarrow 6$) \\ % Pfeil im Mathemodus!
+    \hline \hline
+    H--O (1) & 0.0222792440 \\
+    H--H & 0.0288994237 \\
+    Angle H--O--H (\textdegree) & -0.6131388463 \\
+    \hline
+    \end{tabular}
+\end{table}
 
 \end{document}
