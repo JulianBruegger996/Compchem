@@ -57,7 +57,6 @@
 \pagestyle{scrheadings}
 %Header oben links auf linker Seite (ungerade Seitenzahl) und oben rechts auf rechter Seite (gerade Seitenzahl), beinhaltet gruppennummer und VersuchskÃ¼rzel. Im Fall eine einseitigen Dokuments: Header oben rechts
 \ihead{\VERSUCHSNR} %Header oben rechts auf linker Seite und oben links auf rechter Seite. Beinhaltet die Namen der Verfasser. Im Fall eine einseitigen Dokuments: Header oben links!
-\ohead{\GRUPPENNR}
 \ofoot{\thepage} 
 \cfoot{\empty}  
 \ifoot{\empty} 
@@ -75,10 +74,6 @@
 \newcommand{\MatNoZWEI}{3718292}
 \newcommand{\EmailZWEI}{st188124@stud.uni-stuttgart.de}
 \newcommand{\StudiengangZWEI}{B.Sc. Simulation Technology}
-
-
-\newcommand{\BETREUER}{}
-\newcommand{\GRUPPENNR}{}
 
 \newcommand{\VERSUCHSNR}{1}
 \newcommand{\VERSUCHSNAME}{}
@@ -106,11 +101,7 @@
 						& \large{\VerfasserZWEI,} \large{\MatNoZWEI} \\
                         & \large{\EmailZWEI} \\
 						\vspace{0cm}\\
-\large{group number:}	& \large{\GRUPPENNR} \\
-\vspace{0cm}\\
 \large{date of experiment:}	& \large{\VERSUCHSDATUM} \\
-\vspace{0cm}\\
-\large{supervisor:}		& \large{\BETREUER} \\
 \vspace{0cm}\\
 \large{submission date:} & \large{\PROTOKOLLDATUM}
 \end{tabular}
@@ -134,55 +125,67 @@ A prewritten Jupyter notebook was used to carry out the computations, using the 
 
 \section{Results and Analysis}
 
-The pictures of the molecules are displayed in \autoref{fig:water}, \autoref{fig:acetone}, \autoref{fig:isobutane}, \autoref{fig:mal}, \autoref{fig:pic}, \autoref{fig:benzophenone} and \autoref{fig:tet}.
+The pictures of the molecules are displayed in \autoref{fig:molecules}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{water.png}
-    \caption{Water Molecule}
-    \label{fig:water}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{acetone.png}
-    \caption{Acetone}
-    \label{fig:acetone}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{isobutane.png}
-    \caption{Isobutane}
-    \label{fig:isobutane}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{maleicacid.png}
-    \caption{Maleic acid}
-    \label{fig:mal}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{picricacid.png}
-    \caption{Picric Acid}
-    \label{fig:pic}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{benzophenone.png}
-    \caption{Benzophenone}
-    \label{fig:benzophenone}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{tetrachloroplatinate.png}
-    \caption{Tetrachloroplatinate}
-    \label{fig:tet}
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=50 50 50 50,clip]{water.png}
+        \caption{Water Molecule}
+        \label{fig:water}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=50 50 50 50,clip]{acetone.png}
+        \caption{Acetone}
+        \label{fig:acetone}
+    \end{subfigure}
+    
+    \vspace{0.5cm}
+    
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=50 50 50 50,clip]{isobutane.png}
+        \caption{Isobutane}
+        \label{fig:isobutane}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=50 50 50 50,clip]{maleicacid.png}
+        \caption{Maleic acid}
+        \label{fig:mal}
+    \end{subfigure}
+    
+    \vspace{0.5cm}
+    
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=50 50 50 50,clip]{picricacid.png}
+        \caption{Picric Acid}
+        \label{fig:pic}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=50 50 50 50,clip]{benzophenone.png}
+        \caption{Benzophenone}
+        \label{fig:benzophenone}
+    \end{subfigure}
+    
+    \vspace{0.5cm}
+    
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=50 50 50 50,clip]{tetrachloroplatinate.png}
+        \caption{Tetrachloroplatinate}
+        \label{fig:tet}
+    \end{subfigure}
+        
+    \caption{Molecular structures of various compounds}
+    \label{fig:molecules}
 \end{figure}
 
 \subsection{Structural Analysis of Acetone}
@@ -222,7 +225,7 @@ The last thing we looked at, was the Morse potential, which is a simple model fo
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{morse.png}
-    \caption{The Energy in eV given by the Morse potential for different bond distances in $\AA$}
+    \caption{The Energy in eV given by the Morse potential for different bond distances in Å.}
     \label{fig:morse}
 \end{figure}
 
@@ -231,5 +234,11 @@ This can also be seen in the analytical expression of the Morse potential:
 \begin{equation}
     V(R) = D_e \left( 1 - e^{-a(R-R_e)} \right)^2
 \end{equation}
+
+where $R$ is the interatomic distance, $R_e$ is the equilibrium bond distance, $D_e$ is the dissociation energy, and $a$ is a parameter that controls the width of the potential well.
+
+The parameter $a$ determines the steepness of the potential curve and is related to the force constant of the bond. A larger value of $a$ results in a narrower and steeper potential well, corresponding to a stiffer bond with a higher vibrational frequency. Conversely, a smaller $a$ produces a wider, shallower well characteristic of a more flexible bond.
+
+Changing the equilibrium distance $R_e$ shifts the minimum of the potential curve along the distance axis without affecting the shape of the curve. This corresponds to molecules with different equilibrium bond lengths. The dissociation energy $D_e$ and the curvature remain unchanged when only $R_e$ is modified.
 
 \end{document}
