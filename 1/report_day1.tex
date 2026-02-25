@@ -1,0 +1,235 @@
+\documentclass[a4paper,12pt,bibliography=totocnumbered]{scrartcl}
+
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage[bookmarks,colorlinks=true]{hyperref}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage[final]{pdfpages}
+\usepackage{framed, color} 
+\usepackage{scrlayer-scrpage}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\renewcaptionname{english}{\figurename}{Fig.}
+\renewcaptionname{english}{\tablename}{Tab.}
+\sisetup{
+    detect-weight=true, 
+    detect-family=true,
+    locale=UK,
+    exponent-product = \cdot,
+    range-phrase={\,bis\,},
+    list-final-separator ={\,\linebreak[0] \text{and}\,},
+    separate-uncertainty=true,
+    per-mode = symbol-or-fraction
+}
+%macht kommata anstatt kreuze bei Zehnerpotenzen
+
+\DeclareSIUnit{\angstrom}{\text{\AA}}
+\usepackage[backend=biber, style=chem-angew]{biblatex} 
+\addbibresource{lit.bib} 
+
+\usepackage{chemgreek}
+\usepackage{chemformula}
+\geometry{left = 2.5cm} \geometry{top = 3cm}
+
+\urlstyle{same}
+%Hyperlinks-Setup
+\hypersetup{
+	colorlinks,
+	linktocpage,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+%\numberwithin{equation}{section}
+
+\setlength{\parindent}{0 mm}
+\setlength{\parskip}{2 mm} 
+
+
+
+\pagestyle{scrheadings}
+%Header oben links auf linker Seite (ungerade Seitenzahl) und oben rechts auf rechter Seite (gerade Seitenzahl), beinhaltet gruppennummer und VersuchskÃ¼rzel. Im Fall eine einseitigen Dokuments: Header oben rechts
+\ihead{\VERSUCHSNR} %Header oben rechts auf linker Seite und oben links auf rechter Seite. Beinhaltet die Namen der Verfasser. Im Fall eine einseitigen Dokuments: Header oben links!
+\ohead{\GRUPPENNR}
+\ofoot{\thepage} 
+\cfoot{\empty}  
+\ifoot{\empty} 
+
+
+\newcommand{\VERSUCHSDATUM}{02.03.2026}
+\newcommand{\PROTOKOLLDATUM}{\today}
+
+\newcommand{\VerfasserEINS}{Julian Brügger}
+\newcommand{\MatNoEINS}{3715444}
+\newcommand{\EmailEINS}{st190050@stud.uni-stuttgart.de}
+\newcommand{\StudiengangEINS}{B.Sc. Chemie}
+
+\newcommand{\VerfasserZWEI}{Benedict Roßkopf}
+\newcommand{\MatNoZWEI}{3718292}
+\newcommand{\EmailZWEI}{st188124@stud.uni-stuttgart.de}
+\newcommand{\StudiengangZWEI}{B.Sc. Simulation Technology}
+
+
+\newcommand{\BETREUER}{}
+\newcommand{\GRUPPENNR}{}
+
+\newcommand{\VERSUCHSNR}{1}
+\newcommand{\VERSUCHSNAME}{}
+
+
+\begin{document}
+\thispagestyle{empty}
+
+
+\begin{titlepage}
+
+\begin{center}
+\Huge{\textbf{\VERSUCHSNAME}}\\
+\vspace{10mm}% Abstand
+\Large{Protocol for the Computational Chemistry course by \\ \textbf{\VerfasserEINS\;\& \VerfasserZWEI }}\\
+\vspace{10mm} 
+\Large{University of Stuttgart}\\
+\end{center}
+\vspace{0cm}
+\begin{center}
+\begin{tabular}{ll}
+\large{authors:}		& \large{\VerfasserEINS,} \large{\MatNoEINS} \\
+ 						& \large{\EmailEINS} \\
+						\vspace{0cm}\\
+						& \large{\VerfasserZWEI,} \large{\MatNoZWEI} \\
+                        & \large{\EmailZWEI} \\
+						\vspace{0cm}\\
+\large{group number:}	& \large{\GRUPPENNR} \\
+\vspace{0cm}\\
+\large{date of experiment:}	& \large{\VERSUCHSDATUM} \\
+\vspace{0cm}\\
+\large{supervisor:}		& \large{\BETREUER} \\
+\vspace{0cm}\\
+\large{submission date:} & \large{\PROTOKOLLDATUM}
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+\end{titlepage}
+
+\renewcommand{\thepage}{\arabic{page}}
+
+\setcounter{page}{1}
+
+
+\section{Introduction}
+The first exercise was about familiarizing ourselves with Python and the workflow that we will use in the following worksheets. To do this, we looked at the properties of different molecules and in the end plotted the Morse-Potential.
+
+\section{Procedure}
+
+A prewritten Jupyter notebook was used to carry out the computations, using the Atomic Simulation Environment (ASE) as well as the NGLView package.
+
+\section{Results and Analysis}
+
+The pictures of the molecules are displayed in \autoref{fig:water}, \autoref{fig:acetone}, \autoref{fig:isobutane}, \autoref{fig:mal}, \autoref{fig:pic}, \autoref{fig:benzophenone} and \autoref{fig:tet}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{water.png}
+    \caption{Water Molecule}
+    \label{fig:water}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{acetone.png}
+    \caption{Acetone}
+    \label{fig:acetone}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{isobutane.png}
+    \caption{Isobutane}
+    \label{fig:isobutane}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{maleicacid.png}
+    \caption{Maleic acid}
+    \label{fig:mal}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{picricacid.png}
+    \caption{Picric Acid}
+    \label{fig:pic}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{benzophenone.png}
+    \caption{Benzophenone}
+    \label{fig:benzophenone}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{tetrachloroplatinate.png}
+    \caption{Tetrachloroplatinate}
+    \label{fig:tet}
+\end{figure}
+
+\subsection{Structural Analysis of Acetone}
+
+As an example for the analysis of molecular geometry, we calculated various structural parameters for acetone (\ch{CH3COCH3}), including bond lengths, bond angles, and dihedral angles.
+
+\subsubsection{Bond Lengths}
+
+The bond lengths in acetone were calculated from the atomic positions:
+
+\begin{itemize}
+    \item C=O bond (carbonyl): \SI{1.227}{\angstrom}
+    \item C--C bonds (carbonyl to methyl groups): \SI{1.512}{\angstrom}
+\end{itemize}
+
+The C=O double bond is, as expected, significantly shorter than the C--C single bonds.
+
+\subsubsection{Bond Angles}
+
+Several bond angles were analyzed to characterize the molecular geometry:
+
+\begin{itemize}
+    \item C--C=O angle (at carbonyl carbon): \SI{121.75}{\degree}
+    \item C--C--C angle (between methyl groups at carbonyl carbon): \SI{116.51}{\degree}
+    \item H--C--H angle (in methyl groups): \SI{109.75}{\degree}
+    \item C--C--H angle (methyl group): \SI{109.46}{\degree}
+\end{itemize}
+
+\subsubsection{Dihedral Angles}
+
+The dihedral angle C--C--C=O was found to be \SI{180.00}{\degree}.
+
+\subsection{Morse Potential}
+
+The last thing we looked at, was the Morse potential, which is a simple model for the diatomic energy curve. The energy values for various bond distances were provided to us and are plotted in the following figure:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{morse.png}
+    \caption{The Energy in eV given by the Morse potential for different bond distances in $\AA$}
+    \label{fig:morse}
+\end{figure}
+
+The plot shows the characteristic shape of the Morse potential, with a minimum at the equilibrium bond distance $R_e$ and a convergence to the dissociation energy $D_e$ as the bond distance increases.
+This can also be seen in the analytical expression of the Morse potential:
+\begin{equation}
+    V(R) = D_e \left( 1 - e^{-a(R-R_e)} \right)^2
+\end{equation}
+
+\end{document}
