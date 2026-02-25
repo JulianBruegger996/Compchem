@@ -63,7 +63,6 @@
 \pagestyle{scrheadings}
 \clearpairofpagestyles % Löscht alte Voreinstellungen
 \ihead{\VERSUCHSNR} 
-\ohead{\GRUPPENNR}
 \ofoot{\thepage} 
 
 \begin{document}
@@ -89,11 +88,17 @@
 
 \section{Introduction}
 
+\section{Results and Discussion}
+
+\subsection{Geometry optimization of Water}
+
+The obtained values of the total energy, the bond lengths and the bond angle are displayed in \autoref{tab:1}
+
 \begin{table}[H]
     \centering
     \caption{Bond lengths and energies obtained on each iteration step.}
     \begin{tabular}{c c c c cc}
-        Iteration & Energy (eV) & d(H-O) 1 (\AA) & d(HO) (\AA) & d(H-H) (\AA) \\
+        Iteration & Energy (eV) & d(H-O) 1 (\AA) & d(HO) (\AA) & d(H-H) (\AA) & Angle H--O--H (\textdegree)\\
         \hline \hline
         0 & -2068.7735881644826 & 0.9685650183 & 0.9685650183 & 1.5264780000 & 103.9998750987 \\
 
@@ -109,8 +114,11 @@
 
 		6 & -2068.8015014263200 & 0.9462857742 & 0.9462857742 & 1.4975785763 & 104.6130139450 \\ 
 		\hline
+		\label{tab:1}
     \end{tabular}
 \end{table}
+
+The differences between the first iteration and the optimized geometry is displayed in \autoref{tab:2}
 
 \begin{table}[h]
     \centering
@@ -123,7 +131,41 @@
     H--H & 0.0288994237 \\
     Angle H--O--H (\textdegree) & -0.6131388463 \\
     \hline
+	\label{tab:2}
     \end{tabular}
 \end{table}
+
+\subsection{Geometry optimization of an distorted water molecule}
+
+To visualize the impact of the geometry optimization the structure of the distorted water molecule before the geometry optimization is displayed in \autoref{fig:1}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{distorted_water.png}
+    \caption{The molecular structure of the distorted water molecule.}
+    \label{fig:1}
+\end{figure}
+
+The molecule after the geometry optimization is displayed in \autoref{fig2}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{distorted_water_opt.png}
+    \caption{The molecular structure of the distorted water molecule after the geometry optimization.}
+    \label{fig2}
+\end{figure}
+
+\subsection{Potential Energy of \ch{H2}}
+
+The calculated potential Energy curve of Dihydrogen is plotted in \autoref{fig3}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{dissociation_curve.png}
+    \caption{The potential energy curve of dihydrogen.}
+    \label{fig3}
+\end{figure}
+
+The approximated dissociation energy is $D_e \approx 4.7$ eV.
 
 \end{document}
