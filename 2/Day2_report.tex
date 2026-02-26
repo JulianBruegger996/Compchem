@@ -88,11 +88,20 @@
 
 \section{Introduction}
 
+For this exercise we will perform geometry optimizations of a water molecule and a distorted water molecule, to demonstrate the impact of geometry optimization. 
+Furthermore, we will calculate the potential energy curve of dihydrogen and estimate the dissociation energy.
+
+\section{Geometry optimization}
+
+Geometry optimization is a computational technique used to find the most stable structure of a molecule by minimizing its energy. 
+For this, geometry optimization calculates the forces acting on the atoms in a molecule and adjusts their positions iteratively until the forces are minimized, indicating that the molecule has reached its lowest energy configuration.
+For the following calculations the Restricted Hartree-Fock (RHF) method and the cc-pVQZ basis set were used.
+
 \section{Results and Discussion}
 
 \subsection{Geometry optimization of Water}
 
-The obtained values of the total energy, the bond lengths and the bond angle are displayed in \autoref{tab:1}
+By performing the above described geometry optimization on a water molecule, we obtained the following values for the total energy, the bond lengths and the bond angle at each iteration step, which are displayed in \autoref{tab:1}
 
 \begin{table}[H]
     \centering
@@ -135,9 +144,11 @@ The differences between the first iteration and the optimized geometry is displa
     \end{tabular}
 \end{table}
 
+One can see, that the bond lengths and the bond angle did not change significantly during the geometry optimization, since we are already starting with a geometry close to the optimized geometry.
+
 \subsection{Geometry optimization of an distorted water molecule}
 
-To visualize the impact of the geometry optimization the structure of the distorted water molecule before the geometry optimization is displayed in \autoref{fig:1}
+On the contrary, if we start with a distorted water molecule (depicted in \autoref{fig:1}), we can see a significant change in the starting and optimized geometries. 
 
 \begin{figure}[H]
     \centering
@@ -146,7 +157,7 @@ To visualize the impact of the geometry optimization the structure of the distor
     \label{fig:1}
 \end{figure}
 
-The molecule after the geometry optimization is displayed in \autoref{fig2}
+The molecule after the geometry optimization is displayed in \autoref{fig2}.
 
 \begin{figure}[H]
     \centering
@@ -155,9 +166,11 @@ The molecule after the geometry optimization is displayed in \autoref{fig2}
     \label{fig2}
 \end{figure}
 
+We observe, that the hydrogen atom, that was moved away from it's optimal position to distort the water molecule, is now back in its optimal position after the geometry optimization. 
+
 \subsection{Potential Energy of \ch{H2}}
 
-The calculated potential Energy curve of Dihydrogen is plotted in \autoref{fig3}
+Finally, we can calculate the potential Energy for various distances of two hydrogen atoms in a dihydrogen molecule to determine its potential energy curve, which is plotted in \autoref{fig3}
 
 \begin{figure}[H]
     \centering
@@ -166,6 +179,7 @@ The calculated potential Energy curve of Dihydrogen is plotted in \autoref{fig3}
     \label{fig3}
 \end{figure}
 
-The approximated dissociation energy is $D_e \approx 4.7$ eV.
+By subtracting the energy of the dissociated atoms from the energy of the molecule at its equilibrium bond length, we can estimate the dissociation energy $D_e$ of dihydrogen as $D_e \approx 4.7$eV.
+Another thing we can read from the dissociation curve is the equilibrium bond length of dihydrogen, which is approximately \SI{0.75}{\angstrom}.
 
 \end{document}
