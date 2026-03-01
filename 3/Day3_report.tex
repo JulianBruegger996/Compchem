@@ -1,0 +1,126 @@
+\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{framed, xcolor} 
+\usepackage{scrlayer-scrpage}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{chemgreek}
+\usepackage{chemformula}
+\usepackage[bookmarks,colorlinks=true]{hyperref}
+
+% 1. ZUERST DIE VARIABLEN DEFINIEREN
+\newcommand{\VERSUCHSDATUM}{\today}
+\newcommand{\PROTOKOLLDATUM}{\today}
+\newcommand{\VerfasserEINS}{Julian Brügger}
+\newcommand{\MatNoEINS}{3715444}
+\newcommand{\EmailEINS}{st190050@stud.uni-stuttgart.de}
+\newcommand{\StudiengangEINS}{B.Sc. Chemie}
+\newcommand{\VerfasserZWEI}{Benedict Roßkopf}
+\newcommand{\MatNoZWEI}{3718292}
+\newcommand{\EmailZWEI}{st188124@stud.uni-stuttgart.de}
+\newcommand{\StudiengangZWEI}{B.Sc. Simulation Technology}
+\newcommand{\BETREUER}{}
+\newcommand{\GRUPPENNR}{Gruppe X} % Darf nicht leer sein, wenn im Header genutzt
+\newcommand{\VERSUCHSNR}{1}
+\newcommand{\VERSUCHSNAME}{Computational Chemistry Course}
+
+% 2. DANN DAS LAYOUT
+\geometry{left = 2.5cm, top = 3cm}
+\renewcaptionname{english}{\figurename}{Fig.}
+\renewcaptionname{english}{\tablename}{Tab.}
+
+\sisetup{
+    detect-weight=true, 
+    detect-family=true,
+    locale=UK,
+    exponent-product = \cdot,
+    separate-uncertainty=true,
+    per-mode = symbol-or-fraction
+}
+
+\DeclareSIUnit{\angstrom}{\text{\AA}}
+
+\hypersetup{
+    colorlinks,
+    linktocpage,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\setlength{\parindent}{0 mm}
+\setlength{\parskip}{2 mm} 
+
+\pagestyle{scrheadings}
+\clearpairofpagestyles % Löscht alte Voreinstellungen
+\ihead{\VERSUCHSNR} 
+\ofoot{\thepage} 
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\Huge{\textbf{\VERSUCHSNAME}}\\
+\vspace{10mm}
+\Large{Protocol for the Computational Chemistry course by \\ \textbf{\VerfasserEINS\;\& \VerfasserZWEI }}\\
+\vspace{10mm} 
+\Large{University of Stuttgart}\\
+\end{center}
+\begin{center}
+\begin{tabular}{ll}
+\large{authors:}        & \large{\VerfasserEINS, \MatNoEINS} \\
+                        & \large{\EmailEINS} \\
+                        \vspace{2mm}\\
+                        & \large{\VerfasserZWEI, \MatNoZWEI} \\
+                        & \large{\EmailZWEI} \\
+\end{tabular}
+\end{center}
+\end{titlepage}
+
+\section{Introduction}
+
+In this exercise, we calculated the rotation barrier of 1,2-Fluoro-Ethane and 2-Fluoro-Ethanol.
+To do this, we manually rotated the molecules in 20° steps around the C-C bond and calculated the energy at each step using Density Functional Theory (DFT) with the PBE functional and a def2-SVP basis set. The resulting energy profile was then plotted against the rotation angle to visualize the rotation barrier.
+
+
+\section{Rotation barriers}
+
+Rotation barriers are the energy barriers that must be overcome for a molecule to rotate around a specific bond. 
+In this case, we are interested in the rotation around the C-C bond in 1,2-Fluoro-Ethane and 2-Fluoro-Ethanol. 
+The rotation barrier can be calculated by determining the energy difference between the highest energy conformation and the lowest energy conformation along the rotation pathway.
+This information can be used to understand the conformational preferences of the molecules and their reactivity, as well as to predict their behavior in different chemical environments.
+
+
+\section{Results and Discussion}
+
+\subsection{1,2-Fluoro-Ethane}
+
+As a starting structure for 1,2-Fluoro-Ethane, we used the conformation, where the dihedral angle between the two carbon atoms and the fluorine atom is 180°.
+This conformation should be more stable than the one with a dihedral angle of 0°, because the the two C-F bonds overlapping directly increases the energy of the molecule.
+The resulting energy profile for 1,2-Fluoro-Ethane is shown in Figure \ref{fig:fluoroethane}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{rotation_barrier.png}
+    \caption{Energy profile of 1,2-Fluoro-Ethane as a function of the rotation angle around the C-C bond.}
+    \label{fig:fluoroethane}
+\end{figure}
+
+From the energy profile, we can see the three rotation barriers at approximately 0°, 120°, and 240°, which seperate the three minima at approximately 60°, 180°, and 300°.
+The rotation barrier at 0° is the highest, with an energy of approximately 33 kJ/mol, while the barriers at 120° and 240° are lower, with energies of approximately 12 kJ/mol.
+
+\subsection{2-Fluoro-Ethanol}
+
+Estimating the rotation barrier for 2-Fluoro-Ethanol is more complex than for 1,2-Fluoro-Ethane, because the presence of the hydroxyl group introduces additional interactions that can affect the energy profile.
+In particular, the hydroxyl group can form hydrogen bonds with the fluorine atom, which can stabilize certain conformations and increase the rotation barrier.
+
+\end{document}
