@@ -106,17 +106,42 @@ This information can be used to understand the conformational preferences of the
 
 As a starting structure for 1,2-Fluoro-Ethane, we used the conformation, where the dihedral angle between the two carbon atoms and the fluorine atom is 180°.
 This conformation should be more stable than the one with a dihedral angle of 0°, because the the two C-F bonds overlapping directly increases the energy of the molecule.
-The resulting energy profile for 1,2-Fluoro-Ethane is shown in Figure \ref{fig:fluoroethane}.
+The Newman-projectionf of the two possible conformations with dihedral angles of 60° and 180° are shown in Figure \ref{fig:newman}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{rotation_barrier.png}
-    \caption{Energy profile of 1,2-Fluoro-Ethane as a function of the rotation angle around the C-C bond.}
+    \begin{subfigure}{0.2\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{newman_60.png}
+        \caption{Newman projection of 1,2-Fluoro-Ethane with a dihedral angle of 60°.}
+        \label{fig:newman_60}
+    \end{subfigure}
+    \hspace{1cm}
+    \begin{subfigure}{0.2\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{newman_180.png}
+        \caption{Newman projection of 1,2-Fluoro-Ethane with a dihedral angle of 180°.}
+        \label{fig:newman_180}
+    \end{subfigure}
+    \caption{Newman projections of 1,2-Fluoro-Ethane with different dihedral angles.}
+    \label{fig:newman}
+\end{figure}
+
+First, the molecule was created in Avogadro and then optimized in the same way as discussed in the previous exercise. The starting geometry has an energy of approximately -7548.79eV, while the optimized geometry has an energy of approximately -7558.61eV, which is a significant decrease in energy of approximately 9.81eV.
+
+The resulting energy profile for 1,2-Fluoro-Ethane with the inclusion of the Newman-projections at the minima is shown in Figure \ref{fig:fluoroethane}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{rotation_barrier_conformers.png}
+    \caption{Energy profile of 1,2-Fluoro-Ethane as a function of the rotation angle around the C-C bond with relevant conformers.}
     \label{fig:fluoroethane}
 \end{figure}
 
 From the energy profile, we can see the three rotation barriers at approximately 0°, 120°, and 240°, which seperate the three minima at approximately 60°, 180°, and 300°.
 The rotation barrier at 0° is the highest, with an energy of approximately 33 kJ/mol, while the barriers at 120° and 240° are lower, with energies of approximately 12 kJ/mol.
+Furthermore, we can deduce the stability of the different conformations from the energy profile. The conformation with a dihedral angle of 60° and 180° are the most stable, while the conformation with a dihedral angle of 180° is less stables, and the conformation with a dihedral angle of 0° is the least stable.
+This is in contrast to the expectation from above, that the conformation with a dihedral angle of 180° should be more stable. 
 
 \subsection{2-Fluoro-Ethanol}
 
