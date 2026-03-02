@@ -16,6 +16,10 @@
 *.lof
 *.lot
 
+# --- ASE cache files ---
+cache*
+*.traj
+
 # --- Jupyter Notebooks ---
 # Ignoriere Checkpoints und temporäre Notebook-Daten
 .ipynb_checkpoints/
