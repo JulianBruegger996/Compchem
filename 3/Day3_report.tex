@@ -143,9 +143,26 @@ The rotation barrier at 0° is the highest, with an energy of approximately 33 k
 Furthermore, we can deduce the stability of the different conformations from the energy profile. The conformation with a dihedral angle of 60° and 180° are the most stable, while the conformation with a dihedral angle of 180° is less stables, and the conformation with a dihedral angle of 0° is the least stable.
 This is in contrast to the expectation from above, that the conformation with a dihedral angle of 180° should be more stable. 
 
+The observed energy differences can be explained by a combination of steric hindrance and orbital interactions. The highest energy barriers occur at 0°, 120°, and 240°, which correspond to eclipsed conformations where the substituents on adjacent carbon atoms are aligned, leading to significant steric repulsion between the electron clouds. In particular, the barrier at 0° is the highest because both fluorine atoms are directly eclipsed, resulting in maximum steric hindrance.
+
+The minima at 60°, 180°, and 300° correspond to staggered conformations, where the substituents are maximally separated, minimizing steric repulsion. However, the unexpected stability of the gauche conformations (60° and 300°) over the anti conformation (180°) can be attributed to favorable orbital interactions, specifically the gauche effect. In these conformations, hyperconjugation between the C-F $\sigma^*$ antibonding orbital and the C-H $\sigma$ bonding orbital on the adjacent carbon stabilizes the structure. This stabilization outweighs the slightly increased steric repulsion in the gauche conformation compared to the anti conformation, explaining why the 60°/300° conformation is actually more stable than the 180° conformation.
+
 \subsection{2-Fluoro-Ethanol}
 
-Estimating the rotation barrier for 2-Fluoro-Ethanol is more complex than for 1,2-Fluoro-Ethane, because the presence of the hydroxyl group introduces additional interactions that can affect the energy profile.
-In particular, the hydroxyl group can form hydrogen bonds with the fluorine atom, which can stabilize certain conformations and increase the rotation barrier.
+Estimating the rotation barrier for 2-Fluoro-Ethanol is more complex than for 1,2-Fluoro-Ethane, because the presence of the hydroxyl group introduces additional interactions that can affect the energy profile. In particular, the hydroxyl group can form hydrogen bonds with the fluorine atom, which can stabilize certain conformations and increase the rotation barrier.
+
+However, our calculation involves a significant simplification: we performed a rigid scan around the C-C bond while keeping the hydroxyl group in a fixed orientation relative to the carbon atom to which it is attached. This means that at each step of the rotation, only the C-C dihedral angle was changed, while the O-H bond orientation remained constant in the molecular frame of the rotating group. 
+
+This simplification affects the calculated energies because the true minimum energy conformation at each C-C rotation angle would likely involve different OH orientations to maximize favorable interactions (such as hydrogen bonding with the fluorine atom) or minimize unfavorable steric interactions. In reality, the hydroxyl group would reorient itself during the rotation to find the most stable arrangement at each point. A more accurate approach would require either a relaxed scan, where all other internal coordinates are optimized at each C-C rotation angle, or a multi-dimensional scan that explores both the C-C and O-H rotations simultaneously. The energies we obtained therefore represent an upper bound to the true rotation barrier, as the molecule is constrained to geometries that may not be fully optimized.
+The energy profile for 2-Fluoro-Ethanol is shown in Figure \ref{fig:fluoroethanol}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{rotation_barrier_ethanol.png}
+    \caption{Energy profile of 2-Fluoro-Ethanol as a function of the rotation angle around the C-C bond.}
+    \label{fig:fluoroethanol}
+\end{figure}
+
+There are three rotation barriers at 0°, 120° and 240° with energies of approximately 28 kJ/mol, 33 kJ/mol and 35 kJ/mol, respectively. The minima are at approximately 60°, 180° and 300°, where the conformation with a dihedral angle of 300° is the most stable, followed by the conformation with a dihedral angle of 60°, and the conformation with a dihedral angle of 180° is the least stable.
 
 \end{document}
