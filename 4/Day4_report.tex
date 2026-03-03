@@ -1,0 +1,108 @@
+\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{framed, xcolor} 
+\usepackage{scrlayer-scrpage}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{chemgreek}
+\usepackage{chemformula}
+\usepackage[bookmarks,colorlinks=true]{hyperref}
+
+% 1. ZUERST DIE VARIABLEN DEFINIEREN
+\newcommand{\VERSUCHSDATUM}{\today}
+\newcommand{\PROTOKOLLDATUM}{\today}
+\newcommand{\VerfasserEINS}{Julian Brügger}
+\newcommand{\MatNoEINS}{3715444}
+\newcommand{\EmailEINS}{st190050@stud.uni-stuttgart.de}
+\newcommand{\StudiengangEINS}{B.Sc. Chemie}
+\newcommand{\VerfasserZWEI}{Benedict Roßkopf}
+\newcommand{\MatNoZWEI}{3718292}
+\newcommand{\EmailZWEI}{st188124@stud.uni-stuttgart.de}
+\newcommand{\StudiengangZWEI}{B.Sc. Simulation Technology}
+\newcommand{\BETREUER}{}
+\newcommand{\GRUPPENNR}{Gruppe X} % Darf nicht leer sein, wenn im Header genutzt
+\newcommand{\VERSUCHSNR}{1}
+\newcommand{\VERSUCHSNAME}{Reaction enthalpies and harmonic vibrational frequencies}
+
+% 2. DANN DAS LAYOUT
+\geometry{left = 2.5cm, top = 3cm}
+\renewcaptionname{english}{\figurename}{Fig.}
+\renewcaptionname{english}{\tablename}{Tab.}
+
+\sisetup{
+    detect-weight=true, 
+    detect-family=true,
+    locale=UK,
+    exponent-product = \cdot,
+    separate-uncertainty=true,
+    per-mode = symbol-or-fraction
+}
+
+\DeclareSIUnit{\angstrom}{\text{\AA}}
+
+\hypersetup{
+    colorlinks,
+    linktocpage,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\setlength{\parindent}{0 mm}
+\setlength{\parskip}{2 mm} 
+
+\pagestyle{scrheadings}
+\clearpairofpagestyles % Löscht alte Voreinstellungen
+\ihead{\VERSUCHSNR} 
+\ofoot{\thepage} 
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\Huge{\textbf{\VERSUCHSNAME}}\\
+\vspace{10mm}
+\Large{Protocol for the Computational Chemistry course by \\ \textbf{\VerfasserEINS\;\& \VerfasserZWEI }}\\
+\vspace{10mm} 
+\Large{University of Stuttgart}\\
+\end{center}
+\begin{center}
+\begin{tabular}{ll}
+\large{authors:}        & \large{\VerfasserEINS, \MatNoEINS} \\
+                        & \large{\EmailEINS} \\
+                        \vspace{2mm}\\
+                        & \large{\VerfasserZWEI, \MatNoZWEI} \\
+                        & \large{\EmailZWEI} \\
+\end{tabular}
+\end{center}
+\end{titlepage}
+
+\section{Introduction}
+
+The objective of this computational study is to evaluate the reaction enthalpies and harmonic vibrational frequencies of small molecules, specifically focusing on the hydrogenation of carbon monoxide and formaldehyde. Standard quantum chemical calculations typically yield results for states in a vacuum at 0 K, which does not reflect experimental conditions; therefore, corrections such as the addition of vibrational energy are necessary to improve the results and provide accurate predictions. The reaction enthalpy at 298 K is determined by the following relation:
+\begin{equation}
+\Delta H_r(298 K) = \Delta E_0 + \Delta E_{ZPE} + \Delta E(0 K \rightarrow 298 K) + \Delta N k_B \cdot 298 K
+\end{equation}
+This combines the electronic energy with the zero point vibrational energy, thermal corrections, and the pressure-volume work. To account for electron correlation effects neglected in Hartree-Fock theory, second-order Møller-Plesset perturbation theory (MP2) is employed, where the total energy is defined as:
+\begin{equation}
+E_{MP2} = E_{HF} + E_2
+\end{equation}
+A central part of the analysis involves harmonic vibrational frequencies, derived by approximating the potential energy surface around a stationary point using a Taylor series truncated after the quadratic term. By transforming to mass-weighted coordinates $q_k = \sqrt{M_k} \Delta r_k$, the Hamiltonian decouples into independent 1D harmonic oscillators, allowing the calculation of energy eigenvalues:
+\begin{equation}
+E_{vib} = \sum \hbar \omega_i \left(v_i + \frac{1}{2}\right)
+\end{equation}
+The resulting zero point energy is given by:
+\begin{equation}
+E_{ZPE} = \frac{1}{2} \sum \hbar \omega_i
+\end{equation}
+While this harmonic approximation is computationally feasible, it is primarily valid for low-lying vibrational states and serves as a tool for verifying stationary points, where a transition state is identified by exactly one imaginary frequency. By comparing these theoretical frequencies with experimental data, the performance of various methods such as DF-RHF, DF-MP2, and DF-RKS/B3LYP using the def2-TZVPP basis set can be assessed.
+\end{document}
