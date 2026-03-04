@@ -93,12 +93,12 @@
 
 \section{Introduction}
 
-The objective of this computational study is to evaluate the reaction enthalpies and harmonic vibrational frequencies of small molecules, specifically focusing on the hydrogenation of carbon monoxide and formaldehyde. Standard quantum chemical calculations typically yield results for states in a vacuum at 0 K, which does not reflect experimental conditions; therefore, corrections such as the addition of vibrational energy are necessary to improve the results and provide accurate predictions. The reaction enthalpy at 298 K is determined by the following relation:
+The objective of this course is to evaluate the reaction enthalpies and harmonic vibrational frequencies of small molecules, specifically focusing on the hydrogenation of carbon monoxide and formaldehyde. Standard quantum chemical calculations typically yield results for states in a vacuum at 0 K, which does not reflect experimental conditions; therefore, corrections such as the addition of vibrational energy are necessary to improve the results and provide accurate predictions. The reaction enthalpy at 298 K is determined by the following relation:
 \begin{equation}
 \Delta H_r(298 K) = \Delta E_0 + \Delta E_{ZPE} + \Delta E(0 K \rightarrow 298 K) + \Delta N k_B \cdot 298 K
 \label{eq1}
 \end{equation}
-This combines the electronic energy with the zero point vibrational energy, thermal corrections, and the pressure-volume work. To account for electron correlation effects neglected in Hartree-Fock theory, second-order Møller-Plesset perturbation theory (MP2) is employed, where the total energy is defined as:
+This combines the difference between the electronic energies with the zero point vibrational energy, thermal corrections, and the pressure-volume work. To account for electron correlation effects neglected in Hartree-Fock theory, second-order Møller-Plesset perturbation theory (MP2) is employed, where the total energy is defined as:
 \begin{equation}
 E_{MP2} = E_{HF} + E_2
 \end{equation}
@@ -131,7 +131,7 @@ Reaction & MP2/def2-TZVPP & Experiment \\ \midrule
 \end{tabular}
 \end{table}
 
-The point groups of the investigated molecules were determined using the Schoenflies notation as $D_{\infty h}$ for carbon monoxide (CO) and hydrogen (\ch{H2}), $C_{2v}$ for formaldehyde (\ch{H2CO}), and $C_s$ for methanol (\ch{H3COH}).
+The point groups of the investigated molecules were determined using the Schoenflies notation as $D_{\infty h}$ for hydrogen (\ch{H2}), $C_{\infty, v}$ for carbonmonoxide (CO), $C_{2v}$ for formaldehyde (\ch{H2CO}), and $C_s$ for methanol (\ch{H3COH}).
 
 The number of vibrational degrees of freedom was determined using the formula $3N-5$ for linear molecules and $3N-6$ for non-linear molecules. For the linear molecules carbon monoxide (CO) and hydrogen (\ch{H2}), the calculation yields 1 vibrational degree of freedom each. For the non-linear molecules, the formaldehyde molecule (\ch{H2CO}) possesses 6 vibrational degrees of freedom, which are classified into stretching vibrations (symmetric and asymmetric) and bending vibrations (scissoring, rocking, wagging, and twisting), while methanol (\ch{H3COH}) has 12 vibrational degrees of freedom.
 
@@ -139,12 +139,13 @@ The three energy-termns $\Delta E_0$, $\Delta E_{\text{ZPE}}$  und $\Delta E(0 K
 
 The primary approximations within the terms of Equation 1 include the Born-Oppenheimer approximation, which separates electronic and nuclear motion to calculate $\Delta E_{el}$, and the harmonic approximation, which treats molecular vibrations as simple harmonic oscillators for the determination of $\Delta E(ZPE)$ and the vibrational contributions to the thermal energy. Additionally, the thermal correction $\Delta E(0 \text{ K} \rightarrow 298 \text{ K})$ typically relies on the ideal gas law and the rigid rotor model to simplify the translational and rotational energy contributions.
 
-The calculated values of the vibrational frequencies, using DF-RHF, DF-MP2, and DF-RKS/B3LYP with a /def2-TZVPP basis set are displayed in \autoref{tab2}.
+The calculated values of the vibrational frequencies, using DF-RHF, DF-MP2, and DF-RKS/B3LYP with a /def2-TZVPP basis set are displayed in \autoref{tab2} .
 
 % Table 2: Harmonic Vibrational Frequencies
 \begin{table}[H]
 \centering
-\caption{Harmonic vibrational frequencies of $\text{H}_2\text{CO}$ using various electronic structure methods and the def2-TZVPP basis set. All frequencies are given in $\text{cm}^{-1}$.}
+\caption{Harmonic vibrational frequencies of \ch{H2CO} using various electronic structure methods and the def2-TZVPP basis set. All frequencies are given in $\text{cm}^{-1}$.} An improvement could be to use another, more accurate basis set, that doesn't only use the first two terms of the taylor approximation and doesnt make the approach of an harmonic oscillation.
+
 \label{tab2}
 \begin{tabular}{cccccc}
 \toprule
@@ -159,9 +160,11 @@ ZPE & $(A_1)$ & 0.815 eV & 0.737 eV & 0.738 eV & \\ \midrule
 \end{tabular}
 \end{table}
 
+The DF-RKS/B3LYP, hydrid functional desity fitting electronic structure gives the results that corresponds best to the experimental values.
+
 The geometry must be optimized prior to a harmonic frequency calculation because the harmonic approximation is only valid at a stationary point on the potential energy surface. At such a point, the first derivative of the energy with respect to nuclear coordinates (the gradient) is zero. If a frequency calculation yields imaginary frequencies, it indicates that the structure is not at a local minimum but rather at a saddle point, which represents a transition state or an unstable configuration.
 
-While the Third Law of Thermodynamics states that $0\text{ K}$ cannot be reached, the zero-point energy is a fundamental quantum mechanical consequence of the Heisenberg Uncertainty Principle, ensuring that even at a theoretical absolute zero, a molecule retains a minimum vibrational energy of $\frac{1}{2} h\nu$ per mode.
+While the Third Law of Thermodynamics states that $0\text{ K}$ cannot be reached, the zero-point energy is a fundamental quantum mechanical consequence of the Heisenberg Uncertainty Principle, ensuring that even at a theoretical absolute zero, a molecule retains a minimum vibrational energy of $\frac{1}{2} h\nu$ per mode. Furthermore, even if it were possible to reach 0 K it is not possible to measure a virbrational mode, only the energy diffrence $ \Delta E$ between to vibrational modes.
 
 
 \end{document}
