@@ -16,6 +16,10 @@
 *.lof
 *.lot
 
+# --- Molpro ---
+*.cube
+*.molpro/
+
 # --- ASE cache files ---
 cache*
 *.traj
