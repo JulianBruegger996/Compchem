@@ -1,0 +1,235 @@
+\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{framed, xcolor} 
+\usepackage{scrlayer-scrpage}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{chemgreek}
+\usepackage{chemformula}
+\usepackage[bookmarks,colorlinks=true]{hyperref}
+\usepackage{booktabs}
+
+% 1. ZUERST DIE VARIABLEN DEFINIEREN
+\newcommand{\VERSUCHSDATUM}{March 16, 2026}
+\newcommand{\PROTOKOLLDATUM}{\today}
+\newcommand{\VerfasserEINS}{Julian Brügger}
+\newcommand{\MatNoEINS}{3715444}
+\newcommand{\EmailEINS}{st190050@stud.uni-stuttgart.de}
+\newcommand{\StudiengangEINS}{B.Sc. Chemie}
+\newcommand{\VerfasserZWEI}{Benedict Roßkopf}
+\newcommand{\MatNoZWEI}{3718292}
+\newcommand{\EmailZWEI}{st188124@stud.uni-stuttgart.de}
+\newcommand{\StudiengangZWEI}{B.Sc. Simulation Technology}
+\newcommand{\BETREUER}{}
+\newcommand{\GRUPPENNR}{Gruppe X} % Darf nicht leer sein, wenn im Header genutzt
+\newcommand{\VERSUCHSNR}{1}
+\newcommand{\VERSUCHSNAME}{Different Methods and Basis Sets}
+
+% 2. DANN DAS LAYOUT
+\geometry{left = 2.5cm, top = 3cm}
+\renewcaptionname{english}{\figurename}{Fig.}
+\renewcaptionname{english}{\tablename}{Tab.}
+
+\sisetup{
+    detect-weight=true, 
+    detect-family=true,
+    locale=UK,
+    exponent-product = \cdot,
+    separate-uncertainty=true,
+    per-mode = symbol-or-fraction
+}
+
+\DeclareSIUnit{\angstrom}{\text{\AA}}
+
+\hypersetup{
+    colorlinks,
+    linktocpage,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\setlength{\parindent}{0 mm}
+\setlength{\parskip}{2 mm} 
+
+\pagestyle{scrheadings}
+\clearpairofpagestyles % Löscht alte Voreinstellungen
+\ihead{\VERSUCHSNR} 
+\ofoot{\thepage} 
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\Huge{\textbf{\VERSUCHSNAME}}\\
+\vspace{10mm}
+\Large{Protocol for the Computational Chemistry course by \\ \textbf{\VerfasserEINS\;\& \VerfasserZWEI }}\\
+\vspace{10mm} 
+\Large{University of Stuttgart}\\
+\end{center}
+\begin{center}
+\begin{tabular}{ll}
+\large{authors:}        & \large{\VerfasserEINS, \MatNoEINS} \\
+                        & \large{\EmailEINS} \\
+                        \vspace{2mm}\\
+                        & \large{\VerfasserZWEI, \MatNoZWEI} \\
+                        & \large{\EmailZWEI} \\						
+                        \vspace{0cm}\\
+\large{date of experiment:}	& \large{\VERSUCHSDATUM} \\
+\vspace{0cm}\\
+\large{submission date:} & \large{\PROTOKOLLDATUM}
+\end{tabular}
+\end{center}
+\end{titlepage}
+
+\section{Introduction}
+
+In this exercise, we looked to compare different methods and basis sets for the calulation of the reaction energy of the following reaction:
+
+\begin{center}
+    \ch{CO + H_2 -> CH_2O}
+\end{center}
+
+In the end we extrapolated the correlation energy of \ch{F_2} to the complete basis set limit using a 2 point extrapolation scheme.
+
+The methods we used are the following for the first reaction:
+\begin{itemize}
+    \item Hartree-Fock (RHF)
+    \item Møller-Plesset perturbation theory (MP2)
+    \item Coupled-cluster with double excitations (CCD)
+    \item Coupled-cluster with single and double excitations (CCSD)
+    \item Coupled-cluster with single, double and perturbative triple excitations (CCSD(T))
+    \item Configuration interaction with single and double excitations (CISD)
+    \item Density functional theory with the PBE functional
+    \item Density functional theory with the TPSS functional
+    \item Density functional theory with the TPSSh functional
+    \item Density functional theory with the B3LYP functional
+\end{itemize}
+where the basis set used for all calculations was the cc-pVDZ basis set, which is a double-zeta basis set.
+
+For the second part of the exercise we used the following methods:
+\begin{itemize}
+    \item CCSD
+    \item CCSD(T)
+    \item Coupled-cluster with single, double and perturbative triple excitations with the F12 correction (CCSD(T)-F12)
+\end{itemize}
+where we used the following basis sets:
+\begin{itemize}
+    \item cc-pVDZ
+    \item cc-pVTZ
+    \item cc-pVQZ
+    \item cc-pV5Z
+\end{itemize}
+and the respective F12-optimized basis sets for the CCSD(T)-F12 method.
+
+
+\section{Theory}
+
+\subsection{Overview of methods, size consistency, and variational behavior}
+
+\begin{itemize}
+    \item RHF: Mean-field single-determinant method. It is size consistent for non-interacting fragments and variational (upper bound within the RHF ansatz).
+    \item MP2: Second-order perturbative correction to HF that adds dynamical correlation. It is size consistent (size extensive) but not variational.
+    \item CCD: Coupled-cluster with double excitations only. It is size consistent (size extensive) and not variational.
+    \item CCSD: Coupled-cluster with single and double excitations. It is size consistent (size extensive) and not variational.
+    \item CCSD(T): CCSD with perturbative triples correction. It is approximately size consistent in practical applications and not variational.
+    \item CISD: Configuration interaction with single and double excitations. It is variational but not size consistent.
+    \item PBE, TPSS, TPSSh, B3LYP: Kohn-Sham DFT functionals (GGA, meta-GGA, hybrid meta-GGA, hybrid GGA). In practice they are usually treated as size consistent for separated subsystems, but they are not variational with respect to the exact energy (no guaranteed upper bound).
+\end{itemize}
+
+Size consistency means that for two infinitely separated, non-interacting systems A and B, a method should satisfy
+\[
+E(A + B) = E(A) + E(B).
+\]
+If this is not fulfilled, the energy of a combined system is wrong even when there is no interaction.
+
+The size-consistency problem is therefore most visible when comparing methods like CISD and CCSD: both include single and double excitations, but CISD does not scale correctly with system size, while CCSD does. As a result, non-size-consistent methods can introduce artificial errors in reaction energies and dissociation limits, especially for larger molecules.
+
+The hierarchy of density functionals is often described by Jacob's ladder. PBE is a GGA functional (it depends on the density and its gradient). TPSS is a meta-GGA functional (it additionally uses ingredients such as the kinetic-energy density), so it is one rung higher and usually more flexible. TPSSh is a hybrid meta-GGA: it is based on TPSS but mixes in a fraction of exact Hartree-Fock exchange, which often improves thermochemistry and barrier heights. B3LYP is a hybrid GGA (not a meta-GGA), so compared to the PBE $\rightarrow$ TPSS $\rightarrow$ TPSSh sequence, it is formally closer to PBE in the ladder ingredients, but like TPSSh it includes exact exchange through hybrid mixing. In short: PBE = GGA, TPSS = meta-GGA, TPSSh = hybrid meta-GGA, B3LYP = hybrid GGA.
+
+Another point to note is the scaling behaviour with the system size. If we compare CCSD and CCSD(T), we see that CCSD scales as $N^6$ with the system size, while CCSD(T) scales as $N^7$. This means that CCSD(T) is significantly more computationally expensive than CCSD, especially for larger systems. MP2, on the other hand, scales as $N^5$, making it more affordable than both CCSD and CCSD(T) for larger molecules.
+
+\subsection{Extrapolation of correlation energies to the complete basis set limit}
+
+To estimate the complete basis set (CBS) limit, we assume that the correlation energy converges with the basis cardinal number $n$ as
+\[
+E_{\mathrm{corr}}(n) = E_{\mathrm{corr}}^{\mathrm{CBS}} + A n^{-3}.
+\]
+Using two basis sets with cardinal numbers $n_1$ and $n_2$, and the corresponding correlation energies $E_{\mathrm{corr}}^{(1)}$ and $E_{\mathrm{corr}}^{(2)}$, we can eliminate $A$ and directly obtain
+\[
+E_{\mathrm{corr}}^{\mathrm{CBS}} = \frac{n_2^{3}E_{\mathrm{corr}}^{(2)} - n_1^{3}E_{\mathrm{corr}}^{(1)}}{n_2^{3} - n_1^{3}}.
+\]
+In practice, we first compute the Hartree-Fock and correlated energies for each basis set, then form $E_{\mathrm{corr}} = E_{\mathrm{method}} - E_{\mathrm{HF}}$, and finally insert two $E_{\mathrm{corr}}$ values into the formula to estimate the infinite-basis limit.
+
+
+\section{Results and Discussion}
+
+\subsection{Reaction energy of \ch{CO + H_2 -> CH_2O}}
+First we calculated the reaction energy of the above reaction using different methods and basis sets. The results are shown in Table \ref{tab:reaction_energies}.
+
+\begin{table}[H]
+\centering
+\caption{Method dependency of correlation energies in \si{\kilo\joule\per\mole}.}
+\label{tab:reaction_energies}
+\begin{tabular}{lrrr}
+\toprule
+Method & Reaction energy & $E(\mathrm{H_2})$ & Correlation energy $\mathrm{H_2}$ \\
+& (\si{\kilo\joule\per\mole}) & (\si{\kilo\joule\per\mole}) & (\si{\kilo\joule\per\mole}) \\
+\midrule
+RHF     & 1.6964   & -2974.6515 & 0.0000 \\
+MP2     & -18.1073 & -3057.7876 & -83.1361 \\
+CCD     & 2.5060   & -2963.2926 & 11.3590 \\
+CCSD    & -17.2333 & -3077.9142 & -103.2627 \\
+CCSD(T) & -15.7152 & -3077.9142 & -103.2627 \\
+CISD    & 0.8805   & -3077.9142 & -103.2627 \\
+PBE     & -49.9972 & -3061.3965 & -86.7450 \\
+TPSS    & -35.4706 & -3097.5347 & -122.8832 \\
+TPSSh   & -37.6200 & -3096.2133 & -121.5618 \\
+B3LYP   & -31.5100 & -3080.2811 & -105.6296 \\
+Experiment & -20.63 & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+By comparing the results for the CCD and the CCSD calculation, we can see that double excitations alone are not sufficient for a reliable description of this reaction, and that including single excitations (CCSD) significantly improves the predicted energies.
+
+Apart from choosing a different method, these results could be further improved by using a larger basis set. In this exercise, we used the cc-pVDZ basis set, which is a double-zeta basis set. Using a triple-zeta or even a quadruple-zeta basis set would likely yield more accurate results, as they provide a better description of the electronic wavefunction.
+
+All in all, when taking accuracy for this reaction and computational efficiency into account, we would recommend using the MP2 method to reach "chemical accuracy", since it gives the smallest deviation from the experimental reaction energy in our data while being much less computationally demanding than coupled-cluster methods.
+
+\subsection{Extrapolation of the correlation energy of \ch{F_2} to the complete basis set limit}
+
+The following table shows the basis set dependency of the correlation energy of \ch{F_2} for the different methods.
+
+\begin{table}[H]
+\centering
+\caption{Basis set dependency of correlation energies of \ch{F_2} in \si{\kilo\joule\per\mole}.}
+\label{tab:f2_correlation_energies}
+\begin{tabular}{lrrrrr}
+\toprule
+Method & cc-pVDZ & cc-pVTZ & cc-pVQZ & cc-pV5Z & CBS \\
+\midrule
+CCSD         & -1060.1978 & -1383.7568 & -1498.3673 & -1541.4940 & -- \\
+CCSD(T)      & -1084.3781 & -1431.5745 & -1553.8118 & -1600.0427 & -1620.8738 \\
+CCSD(T)-F12b & -1579.3231 & -1621.5614 & -1634.8196 & --        & -1627.5959 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For CCSD(T)-F12b, the reported basis sets correspond to cc-pVDZ-F12, cc-pVTZ-F12.
+
+When using DFT, increasing the basis set size does not necessarily lead to a systematic improvement in the results, as the functional itself is an approximation. In contrast, for wavefunction-based methods like CCSD and CCSD(T), increasing the basis set size generally leads to a more accurate description of the electronic correlation, and thus a more accurate correlation energy. This is reflected in the data, where we see a significant change in the correlation energy as we go from cc-pVDZ to cc-pV5Z for both CCSD and CCSD(T). The extrapolated CBS values provide an estimate of the correlation energy in the limit of an infinite basis set, which is often considered the most accurate result within the chosen method.
+
+Taking both accuracy and computational efficiency into account, we recommend CCSD(T)-F12b with the cc-pVTZ-F12 basis set for coupled-cluster energy calculations. In our data, this level is already very close to the CBS limit, while being significantly less expensive than conventional CCSD(T) calculations with very large basis sets such as cc-pV5Z.
+
+
+\end{document}
