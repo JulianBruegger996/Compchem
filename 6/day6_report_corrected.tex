@@ -142,7 +142,18 @@ $3\sigma_{g}$    & $A_{g}$         & 17.09                           & 15.51    
 
 As observed in the results, the deviation between computed and experimental values is significantly larger for core orbitals. This discrepancy is primarily due to orbital relaxation effects, which are much more pronounced for core electrons than for valence electrons.
 
+The ionization energy of the HOMO was calculated to be \qty{16.80}{\electronvolt} (\qty{0.617}{Hartree}) using Koopmans' theorem, whereas the energy difference method ($\Delta$SCF) yielded a value of \qty{15.91}{\electronvolt} (\qty{0.585}{Hartree}). This discrepancy arises because Koopmans' theorem assumes frozen orbitals, neglecting the orbital relaxation effects of the resulting cation. The $\Delta$SCF method accounts for this relaxation, typically leading to a lower and more accurate ionization potential.
+
 \subsection{Canonical and Localized Orbitals}
+
+The core orbitals shown in \autoref{fig:core} are highly localized at the atomic nuclei and exhibit the highest binding energies. Due to their minimal overlap with neighboring atoms, they do not participate in chemical bonding and remain virtually identical in both the canonical and localized representations.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{core.png}
+    \caption{Core orbitals of furan localized at the carbon and oxygen nuclei.}
+    \label{fig:core}
+\end{figure}
 
 
 In furan, canonical and localized orbitals offer different perspectives on the electronic structure. For $\sigma$-bonds, the localized representation in \autoref{fig:sigma_loc} is more intuitive as it aligns with the Lewis picture of discrete electron pairs and two-center bonds. In contrast, the canonical $\sigma$-orbitals shown in \autoref{fig:sigma_can} are delocalized over the entire molecule, making them harder to interpret chemically. 
